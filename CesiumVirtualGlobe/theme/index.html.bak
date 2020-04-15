@@ -1,0 +1,87 @@
+﻿<!--
+ * @Descripttion: 
+ * @version: 1.0.0
+ * @Author: Schwein
+ * @Date: 2019-06-30 10:57:14
+ * @LastEditors: Schwein
+ * @LastEditTime: 2019-08-22 09:35:39
+ -->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport"
+        content="width=device-width,initial-scale=1,user-scalable=0,minimum-scale=1.0,maximum-scale=1.0" />
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="x5-fullscreen" content="true">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
+    <meta name='keywords' content='Visualization' />
+    <meta name='description' content='Ocean Forecasts Visualization on Virtual Globe' />
+    <link rel='icon' href='img/favicon.ico' />
+    <title>Ocean Forecasts Visualization on Virtual Globe</title>
+
+    <!-- css -->
+    <link href='../lib/fonts/font-awesome/css/font-awesome.min.css' type='text/css' rel='stylesheet' />
+    <link href="../lib/layer/theme/default/layer.css" rel="stylesheet" />
+
+    <link href='css/main.css' type='text/css' rel='stylesheet' />
+    <link href='css/index.css' type='text/css' rel='stylesheet' />
+    <link href="css/themeGray.css" rel="stylesheet" />
+</head>
+
+<body>
+    <!--导航及主菜单-->
+    <div class='mainHeader'>
+
+
+        <!-- logo -->
+        <div class='logo'>
+            <div style="height:100%;padding: 24px 0 0 0;"> <span>Ocean Forecasts Visualization on Virtual Globe</span></div>
+        </div>
+        <div class='main-menu'>
+            <div style="height:100%;">
+                <div class="main-menu-items">
+                    <div class="main-menu-item-left menu-left forecast">Forecasts</div>
+                    <div class="main-menu-item-left menu-left platform">Observations</div>
+
+                </div>
+                <div class="main-menu-spare"></div>
+                      <div class="main-menu-item-right menu-right integrated">Integration</div> 
+                      <div class="main-menu-item-right menu-right scene3d">Volume</div>
+                <div class="main-menu-items">
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div id='menu' class='menu'>
+    </div>
+
+
+    <div id="bottomMenu" style="position: absolute;height: 100px;"></div>
+
+
+    <div class='mainCan' id='mainCan'>
+        <div class='loading' id='conLoadEle'>正在加载功能...</div>
+        <div class='mainCon' id='mainCon'>
+            <iframe id="rightFrame" name="rightFrame" style="width:100%;height:100%;overflow:hidden;margin:0;"
+                scrolling="no" frameborder="0" src="../map.html"></iframe>
+        </div>
+    </div>
+
+    <!--js-->
+    <script src="../lib/jquery/jquery-2.1.4.min.js"></script>
+    <script src="../lib/layer/layer.js"></script>
+    <script src="../lib/hao/haoutil.js"></script>
+    <script src="../lib/urlConfig.js"></script>
+
+    <script src="js/server.js"></script>
+    <script src="js/index.js"></script>
+</body>
+
+</html>

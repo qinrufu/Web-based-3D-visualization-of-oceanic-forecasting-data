@@ -1,0 +1,50 @@
+[
+   {
+     "name": "model",
+     "lable": "模型",
+     "list":  [
+           { "name": "modelUrl", "label": "模型", "type": "hidden", "defval": "" },
+            { "name": "scale", "label": "大小", "type": "number", "defval": 1.0 },
+            { "name": "heading", "label": "方向角", "type": "number", "defval": 0.0 },
+            { "name": "pitch", "label": "抬仰角", "type": "number", "defval": 0.0 },
+            { "name": "roll", "label": "左右角", "type": "number", "defval": 0.0 }, 
+            { "name": "opacity", "label": "透明度", "type": "slider", "defval": 1.0 }
+        ]
+   } ,
+   {
+     "name": "path",
+     "lable": "路径",
+     "list":  [
+           {
+                "name": "lineType",
+                "label": "线型",
+                "type": "combobox",
+                "defval": "solid",
+                "data": [
+                    { "text": "实线", "value": "solid" },
+                    { "text": "虚线", "value": "dash" },
+                    { "text": "光晕", "value": "glow" }
+                ]
+            },
+            { "name": "color", "label": "颜色", "type": "color", "defval": "#3388ff" },
+            { "name": "width", "label": "线宽", "type": "number", "defval": 4 },
+             
+
+            { "name": "outline", "label": "是否衬色", "type": "radio", "defval": false, "impact": [ "outlineColor", "outlineWidth" ] },
+            { "name": "outlineColor", "label": "衬色颜色", "type": "color", "defval": "#ffffff" },
+            { "name": "outlineWidth", "label": "衬色宽度", "type": "number", "defval": 2 },
+            { "name": "opacity", "label": "透明度", "type": "slider", "defval": 1 }
+        ]
+   },
+   {
+     "name": "cone",
+     "lable": "视锥体",
+     "list":  [
+            { "name": "id", "label": "主键", "type": "hidden", "defval": "" },
+            { "name": "name", "label": "名称", "type": "text", "defval": "" },
+            { "name": "remark", "label": "备注", "type": "textarea", "defval": "" }
+        ]
+   }   
+   
+
+]

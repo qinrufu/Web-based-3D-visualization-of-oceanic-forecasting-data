@@ -1,0 +1,14 @@
+﻿<html>
+
+<head>
+    <title>中科院深海所</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <script>
+        location.href = "theme/login.html";
+    </script>
+</head>
+
+<body>
+</body>
+
+</html>

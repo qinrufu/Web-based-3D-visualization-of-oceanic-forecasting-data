@@ -1,0 +1,55 @@
+
+.toolBarRight {
+    position: absolute;
+    top: 140px;
+    right: 70px;
+    z-index: 19910501;
+    background: rgba(43, 44, 47, 0.8);
+    border-radius: 3px;
+    box-shadow: 1px 2px 1px rgba(0, 0, 0, .15);
+}
+
+.toolBarRight i {
+    padding-right: 5px;
+}
+
+.toolBarRight-btn {
+    list-style-type: none;
+    cursor: pointer;
+    border-right: solid 1px #2b2c2f;
+    color: #edffff;
+}
+
+.toolBarRight-btn .btn-link a {
+    text-decoration: none;
+}
+
+.toolBarRight-btn:hover {
+    color: #fff;
+}
+
+.layui-layer-title i {
+    margin-right: 10px;
+}
+
+.toolBarRight-dropdown-menu {
+    background: rgba(43, 44, 47, 0.8);
+    border: 1px solid #2b2c2f;
+}
+
+.toolBarRight-dropdown-menu>li>a {
+    color: #edffff;
+}
+
+.toolBarRight-dropdown-menu>li>a:hover,
+.dropdown-menu>li>a:focus {
+    color: #fff;
+    background-color: #444d59;
+}
+
+.toolBarRight-dropdown-menu>.active>a,
+.dropdown-menu>.active>a:hover,
+.dropdown-menu>.active>a:focus {
+    color: #fff;
+    background-color: #444d59;
+}

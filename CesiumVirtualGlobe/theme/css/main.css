@@ -1,0 +1,7 @@
+html,body{ width:100%; height:100%; }
+body{ font:1em/normal '\5fae\8f6f\96c5\9ed1', '\9ed1\4f53',Arial;  overflow-x:hidden; min-width:292px; }
+
+html,body,div,p,h1,h2,h3,h4,h5,h6,ul,ol,li,dl,dd,dt,table,tbody,caption,th,tr,td,tfoot,section,article,time,aside,canvas,nav,header,footer,time,address,figure,figcaption,from,select,input,button,iframe,marquee,b,strong,span,u,small,big,sub,sup,base,textarea{ margin:0; padding:0; }
+img,input,button{ border:none; outline:none; font:1em/normal '\5fae\8f6f\96c5\9ed1', '\9ed1\4f53',Arial; }
+li,dd{ list-style:none; }
+a{ text-decoration:none; outline:none; }

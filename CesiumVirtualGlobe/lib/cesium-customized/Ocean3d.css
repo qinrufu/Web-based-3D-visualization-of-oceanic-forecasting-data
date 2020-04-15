@@ -1,0 +1,249 @@
+@charset "utf-8";
+
+* {
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.cesium-container {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    position: relative;
+}
+
+/**左下角，鼠标经纬度提示*/
+.location-bar {
+    position: absolute;
+    z-index: 991;
+    /*left: 110px;
+    bottom: 1px;*/
+    padding: 3px 10px;
+    font-size: 13px;
+    color: rgb(233, 233, 233);
+    text-shadow: 2px 2px 2px #000;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+    .location-bar div {
+        float: right;
+        min-width: 80px;
+        margin-right: 20px;
+    }
+
+@media screen and (max-width:600px) {
+    .location-bar {
+        display: none;
+    }
+}
+
+/**滚轮样式*/
+.cesium-mousezoom {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100px;
+    height: 100px;
+    margin-top: -24px; /*图片高度的一半*/
+    margin-left: -24px;
+    pointer-events: none;
+    visibility: hidden;
+    opacity: 0;
+    -webkit-transition: visibility 0s 0.2s,opacity 0.2s ease-in;
+    -moz-transition: visibility 0s 0.2s,opacity 0.2s ease-in;
+    transition: visibility 0s 0.2s,opacity 0.2s ease-in;
+}
+
+.cesium-mousezoom .zoomimg {
+    width: 48px;
+    height: 48px;
+    background-image: url(img/zoom_Identifiers.png);
+    background-size: 100% 100%;
+}
+
+.cesium-mousezoom-visible {
+    visibility: visible;
+    opacity: 1;
+    -webkit-transition: opacity 0.2s ease-out;
+    -moz-transition: opacity 0.2s ease-out;
+    transition: opacity 0.2s ease-out;
+}
+
+
+/*****popup弹出框样式******/
+.cesium-popup {
+    position: absolute;
+    left: 0;
+    top: 5px;
+    text-align: center;
+}
+
+.cesium-popup-close-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 4px 4px 0 0;
+    text-align: center;
+    width: 18px;
+    height: 14px;
+    font: 16px/14px Tahoma, Verdana, sans-serif;
+    text-decoration: none;
+    font-weight: bold;
+    background: transparent;
+    z-index: 9999;
+}
+
+.cesium-popup-content-wrapper {
+    text-align: center;
+    max-height: 600px;
+    overflow-y: auto;
+    box-shadow: 0 3px 14px rgba(0,0,0,0.4);
+    padding: 1px;
+    text-align: left;
+    border-radius: 3px;
+}
+
+.cesium-popup-content {
+    margin: 15px 10px 10px 10px;
+    line-height: 1.4;
+    font-size: 13px;
+    max-width: 900px;
+    min-width: 50px;
+}
+
+.cesium-popup-tip-container {
+    margin: 0 auto;
+    width: 40px;
+    height: 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.cesium-popup-tip {
+    box-shadow: 0 3px 14px rgba(0,0,0,0.4);
+    width: 17px;
+    height: 17px;
+    padding: 1px;
+    margin: -10px auto 0;
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.cesium-popup-color {
+    color: #2b2929; /*黑色字体*/
+}
+
+.cesium-popup-background {
+    /*background: rgba(38,38,38,0.75);*/ /*黑色背景*/
+    background: rgba(255,255,255,0.85); /*白色背景*/
+}
+
+/**内部配置*/
+.mars-popup-titile {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    border-radius: 3px 0 0 3px;
+    padding: 0 80px 0 20px;
+    height: 40px;
+    line-height: 40px;
+    font-size: 16px;
+    color: white;
+    background-color: rgba(63, 72, 84, 0.8);
+   border-bottom: 1px solid #616161;
+    overflow: hidden;
+}
+
+.mars-popup-content {
+    min-width: 150px;
+    margin-top: 52px;
+    font-size: 14px;
+}
+
+.mars-popup-content label {
+    margin: 0 10px;
+    min-width: 50px;
+}
+
+.mars-popup-content > div {
+    margin-top: 5px;
+}
+
+
+
+/**标绘Draw提示信息*/
+.draw-tooltip {
+    display: block;
+    position: absolute;
+    visibility: visible;
+    max-width: 200px;
+    min-width: 100px;
+    padding: 2px 5px;
+    font-size: 11px;
+    z-index: 1000;
+    opacity: 0.8;
+    -khtml-opacity: 0.8;
+    -moz-opacity: 0.8;
+    filter: alpha(opacity=80);
+}
+
+.draw-tooltip.left .draw-tooltip-arrow {
+    top: 50%;
+    right: 0;
+    margin-top: -5px;
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    border-left: 5px solid #000000;
+}
+
+.draw-tooltip.right .draw-tooltip-arrow {
+    top: 50%;
+    left: 0;
+    margin-top: -5px;
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    border-right: 5px solid #000000;
+}
+
+.draw-tooltip-inner {
+    padding: 3px 5px;
+    background-color: rgba(0,0,0,0.8);
+    color: white;
+    text-align: left;
+    max-width: 200px;
+    text-decoration: none;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+}
+
+.draw-tooltip-inner p {
+    margin: 0;
+}
+
+.draw-tooltip-arrow {
+    position: absolute;
+    width: 0;
+    height: 0;
+}
+/* widget测试工具栏 */
+.widgetbar {
+    margin: 0 auto;
+    position: absolute;
+    bottom: 30px;
+    left: 20%;
+    width: 60%;
+    height: auto;
+    z-index: 1987;
+}
+.widgetbar .fa {
+    margin-right: 5px;
+} 

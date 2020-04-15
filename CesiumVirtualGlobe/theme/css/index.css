@@ -1,0 +1,955 @@
+﻿/*
+ * 
+ * 
+ */
+
+body::-webkit-scrollbar {
+    display: none;
+}
+
+body {
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    user-select: none;
+}
+
+.menu dl,
+.nav,
+.mainHeader .logo,
+.nav .navCon dl {
+    float: left;
+}
+
+
+/*.nav,*/
+
+.systemConfig,
+.userInfo,
+.mediaNav {
+    float: right;
+}
+
+.menu .secList {
+    clear: both;
+}
+
+.scrollBar_y,
+.mediaNav,
+.nav .navCon,
+.nav .navCon dl dd {
+    display: none;
+}
+
+{
+    display: inline;
+}
+
+.nav li {
+    display: inline-block;
+}
+
+.nav li a,
+.systemConfig a,
+.userInfo dl dd a,
+.menu dl a
+/*,.nav li:hover .navCon*/
+
+,
+.nav.active,
+.nav .active .navCon,
+.nav .navCon dl.active dd {
+    display: block;
+}
+
+.scrollBar_x_handler,
+.scrollBar_y_handler,
+.mediaNav,
+.nav .navCon dl dt {
+    cursor: pointer;
+}
+
+.systemConfig span,
+.nav li,
+.systemConfig a,
+.userInfo p:before,
+.userInfo dl dt a,
+.userInfo dl dd a,
+.menu dl a {
+    -webkit-transition: color 200ms ease, background 200ms ease;
+    -moz-transition: color 200ms ease, background 200ms ease;
+    -o-transition: color 200ms ease, background 200ms ease;
+    -ms-transition: color 200ms ease, background 200ms ease;
+    transition: color 200ms ease, background 200ms ease;
+}
+
+{
+    -webkit-transition: opacity 200ms ease;
+    -moz-transition: opacity 200ms ease;
+    -o-transition: opacity 200ms ease;
+    -ms-transition: opacity 200ms ease;
+    transition: opacity 200ms ease;
+}
+
+.loading,
+.menu {
+    -webkit-transition: left 200ms ease, top 200ms ease;
+    -moz-transition: left 200ms ease, top 200ms ease;
+    -o-transition: left 200ms ease, top 200ms ease;
+    -ms-transition: left 200ms ease, top 200ms ease;
+    transition: left 200ms ease, top 200ms ease;
+}
+
+.userInfo dl,
+.positionMarker,
+.nav .navCon,
+.nav {
+    -webkit-transition: width 200ms ease, height 200ms ease, left 200ms ease;
+    -moz-transition: width 200ms ease, height 200ms ease, left 200ms ease;
+    -o-transition: width 200ms ease, height 200ms ease, left 200ms ease;
+    -ms-transition: width 200ms ease, height 200ms ease, left 200ms ease;
+    transition: width 200ms ease, height 200ms ease, left 200ms ease;
+}
+
+.nav li span,
+.systemConfig span {
+    -webkit-transition: -webkit-transform 200ms ease;
+    -moz-transition: -moz-transform 200ms ease;
+    -o-transition: -o-transform 200ms ease;
+    -ms-transition: -ms-transform 200ms ease;
+    transition: transform 200ms ease;
+}
+
+.mainHeader,
+.mediaNav:before {
+    -webkit-transition: all 200ms ease;
+    -moz-transition: all 200ms ease;
+    -o-transition: all 200ms ease;
+    -ms-transition: all 200ms ease;
+    transition: all 200ms ease;
+}
+
+{
+    content: '';
+    height: 0;
+    display: block;
+    clear: both;
+    visibility: hidden;
+}
+
+.loading,
+.menu {
+    visibility: hidden;
+}
+
+.loading.active,
+.menu.active {
+    visibility: visible;
+    opacity: 1;
+    filter: alpha(opacity: 100);
+}
+
+.mainHeader .logo p,
+.mainHeader .logo
+/*,.nav*/
+
+{
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.mainHeader,
+.userInfo dl,
+.nav li a,
+.nav .navCon,
+.nav .navCon dl,
+.menu {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+
+/*.mainHeader,*/
+
+.nav li a {
+    -webkit-transition: color 200ms ease, background 200ms ease;
+    -moz-transition: color 200ms ease, background 200ms ease;
+    -o-transition: color 200ms ease, background 200ms ease;
+    -ms-transition: color 200ms ease, background 200ms ease;
+    transition: color 200ms ease, background 200ms ease;
+}
+
+.mainHeader:after {
+    content: '';
+    height: 0;
+    display: block;
+    clear: both;
+    visibility: hidden;
+}
+
+.mainHeader {
+    zoom: 1;
+}
+
+.systemConfig,
+.nav li a {
+    line-height: 60px;
+}
+
+.mainHeader,
+.userInfo dl,
+.nav .navCon {
+    background: #1c2531;
+}
+
+.mainHeader {
+    /*background:#555;*/
+    /*background:#1c2531;*/
+    /*padding:0 1em;*/
+    background-color: rgba(0, 0, 0, 0) !important;
+    width: 1920px !important;
+    height: 80px !important;
+    position: relative;
+    z-index: 2;
+    /* border-bottom:solid 4px rgba(255,255,255,.7); text-shadow:1px 1px 0 rgba(0,0,0,.3); box-shadow:0 .2em .2em rgba(0,0,0,.2);*/
+}
+
+.nav {
+    /*height:100%; */
+    /*margin:0 0 0 3em;*/
+    margin: 0 0 0 80px;
+}
+
+.nav.active {}
+
+.nav li {
+    /*height:100%;*/
+    position: relative;
+    z-index: 1;
+    margin: 0 .2em 0 0;
+}
+
+.nav li:hover .navCon {
+    top: 100%;
+    /* display:none;*/
+}
+
+.nav .navCon {
+    position: absolute;
+    left: 0;
+    padding: .5em;
+    height: auto;
+    overflow: hidden;
+}
+
+.nav .navCon dl {
+    color: white;
+    padding: .5em .5em .2em;
+    font-size: .9em;
+}
+
+.nav .navCon dl:hover dt {}
+
+.nav .navCon a {
+    padding: .1em .5em;
+    line-height: 30px;
+    text-align: left;
+    display: block;
+}
+
+.nav .navCon dl dt {
+    color: white;
+}
+
+.nav .navCon dl dt a {}
+
+.nav .navCon dl dt a:hover {}
+
+.nav .navCon dl dt:hover {}
+
+.nav .navCon dl dd {}
+
+.nav .navCon dl dd a {
+    color: silver;
+}
+
+.nav .navCon dl dd a:hover {}
+
+.nav li a {
+    color: #fff;
+    padding: 0 .4em;
+    text-align: center;
+    /*margin:0 1em; height:100%;padding:0 1.2em;*/
+}
+
+.nav li a:hover {
+    background: rgba(255, 255, 255, .1);
+}
+
+.nav li a:hover span {
+    -webkit-transform: scale(1.1);
+    -moz-transform: scale(1.1);
+    -o-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
+}
+
+.nav li span {
+    width: 1.4em;
+}
+
+.nav li span:before {
+    padding: 0 .3em 0 0;
+}
+
+.nav .active,
+.nav li:hover a {
+    /*color:white; background:rgba(255,255,255,.35); box-shadow:inset 1px 0  0 rgba(255,255,255,.5);*/
+}
+
+.mainHeader .loading {
+    color: white;
+}
+
+.menu-left {
+    float: right;
+    margin-right: 20px;
+}
+
+.menu-right {
+    float: left;
+    margin-left: 20px;
+}
+
+.main-menu-item-right {
+    width: 110px;
+    height: 100%;
+    line-height: 30px;
+    background-image: url("../img/menu-right.png") !important;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    -moz-background-size: 100% 100%;
+}
+.main-menu-item-left {
+    width: 110px;
+    height: 100%;
+    line-height: 30px;
+    background-image: url("../img/menu-left.png") !important;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    -moz-background-size: 100% 100%;
+}
+.main-menu-item-left:hover {
+    background-image: url("../img/menu-left-select.png") !important;
+    cursor: pointer;
+}
+
+.main-menu-item-right:hover {
+    background-image: url("../img/menu-right-select.png") !important;
+    cursor: pointer;
+}
+
+.main-menu-items {
+    float: left;
+    width: 690px;
+    height: 100%;
+}
+
+.main-menu-spare {
+    float: left;
+    width: 540px;
+    height: 100%;
+}
+
+.mainHeader .main-menu {
+    width: 1920px;
+    height: 30px;
+    text-align: center;
+    color: white;
+    position: absolute;
+    top: 40px;
+}
+
+.mainHeader .logo {
+    width: 1920px;
+    height: 86px;
+    text-align: center;
+    color: white;
+    font-size: 24px;
+    background-image: url("../img/top.png") !important;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    -moz-background-size: 100% 100%;
+}
+
+.mainHeader .logo img {
+    height: 30px;
+    margin: 15px 8px 0 0;
+    float: left;
+    display: inline-block;
+    box-sizing: border-box;
+}
+
+.mainHeader .logo p {
+    font-size: 1.4em;
+    font-weight: bold;
+    color: white;
+    line-height: 60px;
+}
+
+.systemConfig {
+    height: 100%;
+    margin: 0 0 0 .5em;
+}
+
+.systemConfig a {
+    /*color:#eee; background:#bbb; text-shadow:1px 1px 0 rgba(0,0,0,.3); */
+    background: none;
+    color: white;
+    padding: 0 .6em;
+    text-align: center;
+}
+
+.systemConfig a:hover {
+    /*color:white; background:rgba(255,255,255,.5);*/
+    color: rgba(255, 255, 255, .9);
+}
+
+.systemConfig a:hover span {
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.systemConfig span:before {}
+
+.systemConfig span {
+    font-size: 1.2em;
+    left: 0;
+    top: 50%;
+    width: .95em;
+    height: 1em;
+    margin: 0 .2em 0 0;
+}
+
+.userInfo {
+    position: relative;
+    z-index: 2;
+    margin: 0 1.5em 0 0;
+    /*padding:0 .5em 0 1.5em;*/
+    font-size: .9em;
+}
+
+.userInfo:hover p:before {
+    color: rgba(255, 255, 255, .9);
+}
+
+.userInfo p {
+    color: white;
+    line-height: 60px;
+}
+
+.userInfo p:before {
+    display: block;
+}
+
+.userInfo dl {
+    position: absolute;
+    right: -1.6em;
+    top: 99%;
+    width: 120px;
+    border-radius: 0 0 .3em .3em;
+    height: 0;
+    overflow: hidden;
+}
+
+.userInfo:hover dl {
+    /* height:auto;*/
+    border-top: dotted 1px rgba(255, 255, 255, .5);
+}
+
+.userInfo dl dt {
+    color: white;
+    height: 30px;
+    line-height: 30px;
+    border-bottom: dotted 1px rgba(255, 255, 255, .5);
+    margin: 0 1em;
+}
+
+.userInfo dl dt a {
+    float: right;
+    color: white;
+    padding: .6em 0 0;
+}
+
+.userInfo dl dt a:hover {
+    color: rgba(255, 255, 255, .7);
+}
+
+.userInfo dl dd {
+    height: 32px;
+    color: white;
+    position: relative;
+}
+
+.userInfo dl dd .fa,
+.userInfo dl dd i {
+    position: absolute;
+    right: 1em;
+    top: .1em;
+    line-height: 32px;
+    font-size: .9em;
+}
+
+.userInfo dl dd a {
+    color: white;
+    line-height: 32px;
+    padding: 0 2.2em 0 1em;
+}
+
+.userInfo dl dd a:hover {
+    color: rgba(255, 255, 255, .7);
+}
+
+.mediaNav {
+    color: white;
+    margin: 23px 1.5em 0 0;
+    font-size: 1.1em;
+}
+
+.mediaNav:hover:before {
+    color: white;
+    color: rgba(255, 255, 255, .9);
+}
+
+.mediaNav:before {
+    font-size: 1.1em;
+}
+
+.positionMarker {
+    position: absolute;
+    z-index: 0;
+    left: 0;
+    top: 57px;
+    width: 0;
+    height: 3px;
+    background: white;
+}
+
+.menu {
+    position: absolute;
+    font-size: 1em;
+    z-index: 2;
+    background: #1c2531;
+    padding: 0 1em 1em;
+    border-top: solid 1px rgba(255, 255, 255, .2);
+    /*background:rgba(255,255,255,.9); border-radius:0 0 .3em .3em; box-shadow:0 0 .5em rgba(0,0,0,.3);*/
+    left: 50%;
+    top: 60px;
+}
+
+.menu dl {
+    /*border-right:dotted 1px silver;*/
+    padding: 1em 20px .5em 0;
+    margin: .3em 0;
+    white-space: nowrap;
+}
+
+.menu .secList {
+    margin: 0;
+    border: none;
+    padding: 1em 0 0;
+    float: none;
+}
+
+.menu .secList dt {
+    padding: .1em 0;
+    border: none;
+    font-size: .9em;
+}
+
+.menu dl:last-child {
+    border-right: none;
+    /*padding-right:0;*/
+}
+
+.menu dl dt {
+    /*font-size:.95em;*/
+    padding: .1em 0 .4em;
+    color: white;
+    font-size: .96em;
+    border-bottom: dotted 1px rgba(255, 255, 255, .5);
+}
+
+.menu dl dd {
+    /*font-size:.8em;*/
+    font-size: .9em;
+}
+
+.menu dl a {
+    color: white;
+    padding: .4em;
+    display: block;
+}
+
+.menu span {
+    padding: 0 .3em 0 0;
+}
+
+
+/*.menu dl a:hover{ color:#333; } */
+
+.menu dl a {
+    color: #c5c8ca;
+}
+
+.menu dl a:hover,
+.nav .navCon dl dd a:hover,
+.nav .navCon dl dt a:hover {
+    color: white;
+    background: rgba(255, 255, 255, .2);
+}
+
+.menu.active {
+    top: 60px;
+}
+
+#mainCan {}
+
+
+/* JS hook */
+
+.mainCan {
+    /* width: 100%;
+    height: 85.2%;
+    position: relative;
+    z-index: 1;
+    height: calc(100% - 60px);
+    overflow: hidden; */
+    /*overflow-y:auto;*/
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    position: absolute;
+    top: 0;
+}
+
+#mainCon {}
+
+.mainCon {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+@-webkit-keyframes loading {
+    0% {}
+    50% {
+        -webkit-transform: translate(0, 4px);
+        background: white;
+    }
+    100% {}
+}
+
+@-moz-keyframes loading {
+    0% {}
+    50% {
+        -moz-transform: translate(0, 4px);
+        background: white;
+    }
+    100% {}
+}
+
+@-o-keyframes loading {
+    0% {}
+    50% {
+        -o-transform: translate(0, 4px);
+        background: white;
+    }
+    100% {}
+}
+
+@-ms-keyframes loading {
+    0% {}
+    50% {
+        -ms-transform: translate(0, 4px);
+        background: white;
+    }
+    100% {}
+}
+
+@keyframes loading {
+    0% {}
+    50% {
+        transform: translate(0, 4px);
+        background: white;
+    }
+    100% {}
+}
+
+.loading {
+    position: absolute;
+    left: 50%;
+    top: 40%;
+    opacity: 0;
+    filter: alpha(opacity: 0);
+    margin: -20px -40px;
+    padding: 1em .7em;
+    text-align: center;
+    font-size: .9em;
+    text-transform: capitalize;
+}
+
+.loading:before,
+.loading:after {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    top: 0;
+    border-radius: 50%;
+    background: gray;
+}
+
+.loading:before {
+    content: '';
+    left: 50%;
+    margin: 0 -13px;
+    -webkit-animation: loading 1s ease infinite;
+    -moz-animation: loading 1s ease infinite;
+    -o-animation: loading 1s ease infinite;
+    -ms-animation: loading 1s ease infinite;
+    animation: loading 1s ease infinite;
+}
+
+.loading:after {
+    content: '';
+    left: 50%;
+    -webkit-animation: loading 1s ease .5s infinite;
+    -moz-animation: loading 1s ease .5s infinite;
+    -o-animation: loading 1s ease .5s infinite;
+    -ms-animation: loading 1s ease .5s infinite;
+    animation: loading 1s ease .5s infinite;
+}
+
+.loading.active {
+    top: 50%;
+    opacity: 100;
+    filter: alpha(opacity: 100);
+}
+
+.scrollBar_y {
+    position: absolute;
+    width: .5em;
+    right: .5em;
+    top: 5%;
+    background: rgba(0, 0, 0, .3);
+    height: 90%;
+    border-radius: 1em;
+    overflow: hidden;
+}
+
+.scrollBar_y:active {
+    background: rgba(0, 0, 0, .4);
+}
+
+.scrollBar_y_handler {
+    position: absolute;
+    width: 100%;
+    height: 30%;
+    background: rgba(200, 200, 200, .7);
+    box-shadow: 0 0 .2em rgba(0, 0, 0, .5);
+    border-radius: .5em;
+}
+
+.scrollBar_y_handler:active {
+    background: rgba(200, 200, 200, .9);
+}
+
+.scrollBar_y .btnT {
+    position: absolute;
+    width: 100%;
+    height: .5em;
+    top: -.6em;
+    background: yellow;
+}
+
+.scrollBar_y .btnB {
+    position: absolute;
+    width: 100%;
+    height: .5em;
+    bottom: -.6em;
+    background: yellow;
+}
+
+.scrollBar_x {
+    position: absolute;
+    width: 90%;
+    left: 5%;
+    bottom: .5em;
+    background: rgba(0, 0, 0, .3);
+    height: .5em;
+}
+
+.scrollBar_x_handler {
+    position: absolute;
+    width: 20%;
+    height: 100%;
+    background: blue;
+}
+
+.scrollBar_x .btnL {
+    position: absolute;
+    width: .5em;
+    height: 100%;
+    left: -.6em;
+    background: yellow;
+}
+
+.scrollBar_x .btnR {
+    position: absolute;
+    width: .5em;
+    height: 100%;
+    right: -.6em;
+    background: yellow;
+}
+
+@media screen and (min-width:768px) and (max-width:1024px) {
+    .mainHeader,
+    .menu {
+        font-size: .9em;
+    }
+    .nav li span {
+        width: 1.1em;
+    }
+}
+
+@media screen and (min-width:641px) and (max-width:767px) {
+    .mainHeader {
+        font-size: .85em;
+    }
+    .mediaNav {
+        display: block;
+    }
+    .nav {
+        width: 100%;
+        height: auto;
+        float: normal;
+        margin: 0;
+        display: none;
+    }
+    .nav li .navCon {
+        position: relative;
+        width: 100%;
+    }
+    .nav ul {}
+    .nav .navCon dl {
+        font-size: 1em;
+        float: none;
+    }
+    .menu {
+        display: none;
+    }
+    .nav li {
+        display: block;
+        border-top: dotted 1px rgba(255, 255, 255, .1);
+    }
+    .nav li a {
+        display: block;
+        width: auto;
+        margin: 0;
+        text-align: left;
+        line-height: 40px;
+    }
+    .nav li dl a {
+        line-height: 30px;
+    }
+}
+
+@media screen and (min-width:321px) and (max-width:640px) {
+    .mainHeader {
+        font-size: .83em;
+    }
+    .mediaNav {
+        display: block;
+    }
+    .nav {
+        width: 100%;
+        height: auto;
+        float: normal;
+        margin: 0;
+        display: none;
+    }
+    .nav li .navCon {
+        position: relative;
+        width: 100%;
+    }
+    .nav ul {}
+    .nav .navCon dl {
+        font-size: 1em;
+        float: none;
+    }
+    .menu {
+        display: none;
+    }
+    .nav li {
+        display: block;
+        border-top: dotted 1px rgba(255, 255, 255, .1);
+    }
+    .nav li a {
+        display: block;
+        width: auto;
+        margin: 0;
+        text-align: left;
+        line-height: 40px;
+    }
+    .nav li dl a {
+        line-height: 30px;
+    }
+}
+
+@media screen and (max-width:320px) {
+    .mainHeader {
+        font-size: .79em;
+    }
+    .mediaNav {
+        display: block;
+    }
+    .nav {
+        width: 100%;
+        height: auto;
+        float: normal;
+        margin: 0;
+        display: none;
+    }
+    .nav li .navCon {
+        position: relative;
+        width: 100%;
+    }
+    .nav ul {}
+    .nav .navCon dl {
+        font-size: 1em;
+        float: none;
+    }
+    .menu {
+        display: none;
+    }
+    .nav li {
+        display: block;
+        border-top: dotted 1px rgba(255, 255, 255, .1);
+    }
+    .nav li a {
+        display: block;
+        width: auto;
+        margin: 0;
+        text-align: left;
+        line-height: 40px;
+    }
+    .nav li dl a {
+        line-height: 30px;
+    }
+}

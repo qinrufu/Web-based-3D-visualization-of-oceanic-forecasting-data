@@ -1,0 +1,77 @@
+<!-- 2017-12-5 15:24:39 | 修改 木遥（QQ：516584683） -->
+<div class="btn-toolbar  animation-slide-top  no-print">
+    <div id="toolbar" class="btn-group" style="margin: 5px 5px 5px 8px;">
+
+        <!--<a id="btnHomeView" title="回到默认区域" class="btn btn-inverse" onclick="viewer.mars.centerAt();">
+            <span class="fa fa-home  fa-lg"></span>
+        </a>
+
+        <a data-toggle="dropdown" id="baseLayerBtn" title="底图设置" class="btn btn-inverse" aria-expanded="false">
+            <span class="fa fa-map"></span>
+            <div class="dropDown-container">
+                <div id="baseLayerGroup">
+                    <div id="baselayerWraper" class="service-items">
+                    </div>
+                </div>
+                <div>
+                    <div style="text-align : left;">
+                        <div class="squaredTwo" id="chkTerrain">
+                            <input type="checkbox"><label class="check-icon"></label>
+                        </div>
+                        <label>显示地形</label>
+                    </div>
+                </div>
+            </div>
+        </a>
+
+        <a title="图层管理" class="btn btn-inverse widget-btn" data-name="图层管理" data-widget="widgets/manageLayers/widget.js">
+            <span class="fa fa-tasks"></span>
+        </a>
+
+        <a id="measureBtn" data-toggle="dropdown" title="地图工具" class="btn btn-inverse" aria-expanded="false">
+            <span class="fa fa-cubes"></span>
+            <div class="dropDown-container measureDropDown">
+                <ul>
+                    <li class="widget-btn" data-widget="widgets/measure/widget.js">
+                        <i class="fa fa-share-alt"></i>图上量算
+                    </li>
+                    <li class="widget-btn" data-widget="widgets/plot/widget.js">
+                        <i class="fa fa-object-group"></i>图上标绘
+                    </li>
+                    <li class="widget-btn" data-widget="widgets/shareUrl/widget.js">
+                        <i class="fa fa-share"></i>分享地图
+                    </li>
+                </ul>
+            </div>
+        </a>
+
+
+        <a id="settingBtn" data-toggle="dropdown" title="参数设置" class="btn btn-inverse" aria-expanded="false">
+            <span class="fa fa-cog"></span>
+            <div class="dropDown-container" role="menu" aria-labelledby="settingBtn">
+                <div id="settingDropDown" style="min-width : 140px;border-radius : 4px;text-align : left;padding : 10px;">
+                    <div>
+                        <div class="squaredTwo" id="atomsphereRender">
+                            <input type="checkbox" checked="">
+                            <label class="check-icon"></label>
+                        </div><label>大气渲染</label>
+                    </div>
+                    <div>
+                        <div class="squaredTwo" id="lightRender">
+                            <input type="checkbox" checked="">
+                            <label class="check-icon"></label>
+                        </div>
+                        <label>光照渲染</label>
+                    </div>
+                    <div>
+                        <div class="squaredTwo" id="testTerrain">
+                            <input type="checkbox" checked="">
+                            <label class="check-icon"></label>
+                        </div><label>深度监测</label>
+                    </div>
+                </div>
+            </div>
+        </a>-->
+
+    </div>
+</div>

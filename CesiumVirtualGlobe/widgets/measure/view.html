@@ -1,0 +1,102 @@
+﻿<!DOCTYPE html>
+<html class="no-js css-menubar" lang="zh-cn">
+
+<head>
+    <title>弹窗子页面</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <!-- 移动设备 viewport -->
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,minimal-ui">
+    <meta name="author" content="火星科技 http://cesium.marsgis.cn ">
+    <!-- 360浏览器默认使用Webkit内核 -->
+    <meta name="renderer" content="webkit">
+    <!-- Chrome浏览器添加桌面快捷方式（安卓） -->
+    <link rel="icon" type="image/png" href="../../img/favicon/favicon.png">
+    <meta name="mobile-web-app-capable" content="yes">
+    <!-- Safari浏览器添加到主屏幕（IOS） -->
+    <link rel="icon" sizes="192x192" href="img/favicon/apple-touch-icon.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="火星科技MarsGIS">
+    <!-- Win8标题栏及ICON图标 -->
+    <link rel="apple-touch-icon-precomposed" href="../../img/favicon/apple-touch-icon.png">
+    <meta name="msapplication-TileImage" content="../../img/favicon/app-icon72x72@2x.png">
+    <meta name="msapplication-TileColor" content="#62a8ea">
+
+    <!-- 第3方lib引入 -->
+    <script type="text/javascript" src="../../lib/include-lib.js?time=20190418" libpath="../../lib/"
+            include="jquery,font-awesome,bootstrap,admui-frame"></script>
+
+    <link href="../../css/widget-win.css" rel="stylesheet" />
+</head>
+
+
+<body style="padding:5px;text-align:center;" title="提示：单击按钮激活对应功能,在地图上单击开始，绘制中单击增加点、双击结束。">
+    <div class="btn-group" role="group">
+  
+        <div class="btn-group" role="group">
+            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                距离
+                <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu">
+                <li id="btn_measure_length"><a href="javascript:void(0)">空间距离</a></li>
+                <li id="btn_measure_length_td"><a href="javascript:void(0)">贴地距离</a></li>
+            </ul>
+        </div>
+
+        <button id="btn_measure_section" type="button" class="btn btn-primary">
+            剖面
+        </button>
+
+        <button id="btn_measure_area" type="button" class="btn btn-primary">
+            面积
+        </button>
+
+        <button id="btn_measure_angle" type="button" class="btn btn-primary">
+            角度
+        </button>
+
+        <div class="btn-group" role="group">
+            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                高度
+                <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu">
+                <li id="btn_measure_height"><a href="javascript:void(0)">高度差</a></li>
+                <li id="btn_measure_supHeight"><a href="javascript:void(0)">三角测量</a></li>
+            </ul>
+        </div>
+
+        <button id="btn_measure_clear" type="button" class="btn btn-danger">
+            清除
+        </button>
+    </div>
+
+
+    <div id="measure_danwei" style="margin-top:5px;">
+        <span style="font-size: 16px;padding-right:10px">单位</span>
+        <select id="measure_length_danwei" class="form-control" style="width:140px">
+            <option value="auto">自动</option>
+            <option value="m">米</option>
+            <option value="km">公里</option>
+            <option value="mile">海里</option>
+            <option value="zhang">丈</option>
+        </select>
+        <select id="measure_area_danwei" class="form-control" style="width:140px;display:none;">
+            <option value="auto">自动</option>
+            <option value="m">平方米</option>
+            <option value="km">平方公里</option>
+            <option value="mu">亩</option>
+            <option value="ha">公顷</option>
+        </select>
+    </div>
+
+    <div style="margin-top:5px;">
+        <span id="lbl_measure_result" style="font-size: 16px;"></span>
+    </div>
+
+    <!--页面js-->
+    <script src="view.js?time=20190418"></script>
+</body>
+</html>

@@ -1,0 +1,114 @@
+﻿#bottomMenu {
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+.-l-c-process-menu {
+    width: 1920px;
+    height: 80px;
+    position: absolute;
+    bottom: 60px;
+    z-index: 999;
+}
+
+.bticon {
+    position: relative;
+    top: 4px;
+    left: 0px;
+    width: 60px;
+    text-align: center;
+}
+
+.btleft {
+    float: left;
+    width: 920px;
+    height: 100%
+}
+
+.btleft_hr {
+    width: 29%;
+    position: absolute;
+    left: 320px;
+    bottom: 60px;
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.btright_hr {
+    width: 29%;
+    position: absolute;
+    right: 320px;
+    bottom: 60px;
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.btleft_title {
+    position: absolute;
+    left: 580px;
+    bottom: 90px;
+}
+
+.btright_title {
+    position: absolute;
+    right: 580px;
+    bottom: 90px;
+}
+
+.icon-pos {
+    font-size: 30px;
+    position: relative;
+    left: 14px;
+    bottom: 2px;
+}
+
+.icon-pos:hover {
+    color: rgb(235, 220, 17);
+}
+
+.btlefticon {
+    float: right;
+    margin: 10px 40px 0 0;
+    width: 60px;
+    height: 50px;
+    background-image: url("../../theme/img/subicon.png") !important;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    -moz-background-size: 100% 100%;
+}
+
+.btlefticon:hover {
+    background-image: url("../../theme/img/subicon-select.png") !important;
+    cursor: pointer;
+}
+
+.btrighticon {
+    float: left;
+    margin: 10px 0 0 40px;
+    width: 60px;
+    height: 50px;
+    background-image: url("../../theme/img/subicon.png") !important;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    -moz-background-size: 100% 100%;
+}
+
+.btrighticon:hover {
+    background-image: url("../../theme/img/subicon-select.png") !important;
+    cursor: pointer;
+}
+
+.btmiddle {
+    float: left;
+    width: 80px;
+    height: 80px;
+    background-image: url("../../theme/img/main-icon.png") !important;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    -moz-background-size: 100% 100%;
+}
+
+.btright {
+    float: left;
+    width: 920px;
+    height: 100%
+}

@@ -1,0 +1,4 @@
+.mainHeader, .userInfo dl,.menu,.nav .navCon{ background:#1c2531 no-repeat right bottom; }
+.menu dt,.menu dt a{ color:white; }
+.menu dl a,.menu,.nav .navCon a,.nav .navCon dl dd a{ color:#c5c8ca; }
+.menu dl a:hover,.nav .navCon a:hover{ color:white; background:rgba(255,255,255,.2); }

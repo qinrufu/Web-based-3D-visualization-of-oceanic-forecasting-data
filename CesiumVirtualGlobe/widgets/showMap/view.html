@@ -1,0 +1,102 @@
+﻿
+<div id="bottomMenu" class="-l-c-process-menu" style="bottom: 60px;">
+    <div class="btleft">
+        <div class='btleft_title_c'>Hourly Forecasts</div>
+        <hr class='btleft_hr_c'>
+        <div class="btlefticon" id="current_day">
+            <i class="iconfont icon-ic_shuiliu icon-pos"></i>
+            <div class="bticon">Current</div>
+        </div>
+        <div class="btlefticon dy_select_item" id="temp_day">
+            <i class="iconfont icon-wendu icon-pos"></i>
+            <div class="bticon">Temperature</div>
+        </div>
+        <div class="btlefticon" id="salt_day">
+            <i class="iconfont icon-yandu icon-pos"></i>
+            <div class="bticon">Salinity</div>
+        </div>
+        <div class="btlefticon" id="water_day">
+            <i class="iconfont icon-shuiweizhan1 icon-pos"></i>
+            <div class="bticon">Waterlevel</div>
+        </div>
+        <div class="btlefticon" id="check_day">
+            <i class="iconfont icon-zhexiantu3 icon-pos"></i>
+            <div class="bticon">FcstVSObs</div>
+        </div>
+    </div>
+    <div class="numbtmiddle"><span style="position: relative;top: 28px;  left: 14px;">Forecasts</span></div>
+    <div class="btright">
+        <div class='btright_title_c'>Daily Average</div>
+        <hr class='btright_hr_c'>
+        <div class="btrighticon" id="current_hour">
+            <i class="iconfont icon-ic_shuiliu icon-pos"></i>
+            <div class="bticon">Current</div>
+        </div>
+        <div class="btrighticon" id="temp_hour">
+            <i class="iconfont icon-wendu icon-pos"></i>
+            <div class="bticon">Temperature</div>
+        </div>
+        <div class="btrighticon" id="salt_hour">
+            <i class="iconfont icon-yandu icon-pos"></i>
+            <div class="bticon">Salinity</div>
+        </div>
+        <div class="btrighticon" id="water_hour">
+            <i class="iconfont icon-shuiweizhan1 icon-pos"></i>
+            <div class="bticon">Waterlevel</div>
+        </div>
+        <div class="btrighticon" id="check_point">
+            <i class="iconfont icon-guijihuifang icon-pos"></i>
+            <div class="bticon">TimeSeries</div>
+        </div>
+    </div>
+
+</div>
+
+<div id="view_dy" class="-l-a-info -shadow">
+    <div class="fxd-title">
+        <span class="fxd-address-title not-icon">Options</span>
+    </div>
+    <div id="view_sgmn_param">
+        <h4>AOI</h4>
+        <table class="-l-a-info-table">
+            <tr>
+                <td>Region:</td>
+                <td class="select_1">
+                    <select id="s_locSelect" class="form-control select_1 select_form">
+                        <option>Lv Song</option>
+                    </select>
+                </td>
+            </tr>
+            <label for="name"></label>
+        </table>
+        <div class="line"></div>
+        <h4>DateTime</h4>
+        <table class="-l-a-info-table">
+            <tr>Timesteps:</td>
+                <td class="select_1">
+                    <input id="datetimepicker" type="text">
+                </td>
+            </tr>
+            <label for="name"></label>
+        </table>
+        <div class="line"></div>
+        <h4>Depth Setting</h4>
+        <table class="-l-a-info-table">
+            <tr>
+                <td>Depth:</td>
+                <td class="select_1">
+                    <select id="s_depSelect" class="form-control select_1 select_form">
+                    </select>
+                </td>
+            </tr>
+            <label for="name"></label>
+        </table>
+        <div class="line"></div>
+        <h4>Legend</h4>
+        <div class='legend-area'>
+            <span id="min1"></span>
+            <span id="max1" style="float:right"></span>
+            <img id="gradient" style="width:200px;height: 20px;">
+        </div>
+    </div>
+</div>

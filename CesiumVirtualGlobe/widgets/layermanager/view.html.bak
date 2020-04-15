@@ -1,0 +1,45 @@
+<!--
+ * @Descripttion: 
+ * @version: 1.0.0
+ * @Author: Schwein
+ * @Date: 2019-06-30 10:57:17
+ * @LastEditors: Schwein
+ * @LastEditTime: 2019-08-20 22:10:12
+ -->
+
+<div id="view_intergrate" class="-l-a-info-intergrate -shadow">
+    <div class="fxd-title">
+        <span class="fxd-address-title not-icon">Layers Overlying</span>
+    </div>
+    <div id="tree"></div>
+</div>
+
+<div id="view_intergrate_config" class="-l-a-info-intergrate-config -shadow">
+    <div class="fxd-title">
+        <span class="fxd-address-title not-icon">Options</span>
+    </div>
+    <div id="view_sgmn_param">
+        <h4>Selected Date</h4>
+        <table class="-l-a-info-intergrate-config-table">
+            <tr>
+                <td style="width:75px">Date:</td>
+                <td class="select_intergrate" style="width:173px">
+                    <input id="integratdatetimepicker" type="text" style="width:173px"
+                        class="form-control select_1 select_form">
+                </td>
+            </tr>
+        </table>
+        <div class="line"></div>
+        <h4>Forecasts</h4>
+        <table class="-l-a-info-intergrate-config-table">
+            <tr>
+                <td style="width:75px">Depth:</td>
+                <td class="select_intergrate" style="width:173px">
+                    <select id="inter_dynamic_depSelect" class="form-control select_1 select_form">
+                    </select>
+                </td>
+            </tr>
+        </table>
+        <div class="line"></div>
+    </div>
+</div>

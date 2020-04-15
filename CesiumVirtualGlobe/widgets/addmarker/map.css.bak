@@ -1,0 +1,33 @@
+/* 2017-11-14 13:31:05 | 修改 木遥（QQ：516584683） */
+.addmarker-popup-titile {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    border-radius: 3px 3px 0 0;
+    padding: 0 80px 0 20px;
+    height: 42px;
+    line-height: 42px;
+    font-size: 16px;
+    color: white;
+    background-color: #20a0ff;
+    border-bottom: 1px solid #eee;
+    overflow: hidden;
+}
+
+.addmarker-popup-content {
+    width: 260px;
+    margin-top: 52px;
+    font-size: 14px;
+}
+
+.form-group {
+    color: #333333;
+}
+ .dark .form-group {
+    color: #ffffff;
+}
+.dark .addmarker-popup-titile {
+    background-color: rgba(29, 63, 70, 0.7);
+    border-bottom: 1px solid #566f64;
+}

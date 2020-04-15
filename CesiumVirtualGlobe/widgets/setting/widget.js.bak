@@ -1,0 +1,148 @@
+/* 2017-9-28 16:04:33 | 修改 木遥（QQ：516584683） */
+//此方式：弹窗非iframe模式
+mars3d.widget.bindClass(mars3d.widget.BaseWidget.extend({
+    options: {
+        resources: [],
+        //弹窗
+        view: {
+            type: "divwindow",
+            url: "view.html",
+            windowOptions: {
+                width: 230,
+                height: 120
+            }
+        },
+    },
+
+    latlngGridLayer: null,
+    ifLatlngGrid: false,
+    ifContour: false,
+    isolineLayer: null,
+    //初始化[仅执行1次]
+    create: function () {
+
+        this.latlngGridInit()
+        this.isolineLayer = new Cesium.CustomDataSource()
+    },
+    //每个窗口创建完成后调用
+    winCreateOK: function (opt, result) {
+        //此处可以绑定页面dom事件
+        var viewer = this.viewer;
+        var that = this
+
+        //大气渲染
+        $("#chk_skyAtmosphere").prop('checked', viewer.scene.skyAtmosphere.show);
+        $("#chk_skyAtmosphere").change(function () {
+            var visible = $(this).is(':checked');
+
+
+            viewer.scene.skyAtmosphere.show = visible;
+            viewer.scene.globe.showGroundAtmosphere = visible;
+        });
+
+        //光照渲染
+        $("#chk_lightRender").prop('checked', viewer.scene.globe.enableLighting);
+        $("#chk_lightRender").change(function () {
+            var visible = $(this).is(':checked');
+
+            viewer.scene.globe.enableLighting = visible;
+            viewer.shadows = visible;
+            viewer.terrainShadows = visible ? Cesium.ShadowMode.ENABLED : Cesium.ShadowMode.RECEIVE_ONLY;
+        });
+
+        //深度监测
+        $("#chk_testTerrain").prop('checked', viewer.scene.globe.depthTestAgainstTerrain);
+        $("#chk_testTerrain").change(function () {
+            var visible = $(this).is(':checked');
+
+            viewer.scene.globe.depthTestAgainstTerrain = visible;
+            if (visible) {
+                toastr.info("深度监测打开后，您将无法看到地下或被地形遮挡的对象。");
+            }
+        });
+
+        //键盘控制
+        $("#chk_firstPerson").change(function () {
+            var visible = $(this).is(':checked');
+
+            viewer.mars.keyboard(visible);
+            if (visible) {
+                toastr.info("您可以键盘按A S D W Q E和上下左右键控制方向。");
+            }
+        });
+
+        //经纬网
+        $("#chk_latlngGrid").prop('checked', that.ifLatlngGrid);
+        $('#chk_latlngGrid').change(function () {
+            var checked = $(this).is(':checked');
+            if (checked) {
+                that.latlngGridLayer.setVisible(true);
+                that.ifLatlngGrid = true
+
+            } else {
+                that.latlngGridLayer.setVisible(false);
+                that.ifLatlngGrid = false
+            }
+        })
+
+        //经纬网
+        $("#chk_contour").prop('checked', that.ifContour);
+        $('#chk_contour').change(function () {
+            var checked = $(this).is(':checked');
+            if (checked) {
+                that.addIsoline()
+                that.ifContour = true
+
+            } else {
+                that.removeIsoline()
+                that.ifContour = false
+            }
+
+        })
+    },
+    //激活插件
+    activate: function () {
+        if (!this.viewer.dataSources.contains(this.isolineLayer)) {
+            this.viewer.dataSources.add(this.isolineLayer)
+        }
+
+    },
+    //释放插件
+    disable: function () {
+
+
+    },
+    latlngGridInit: function () {
+        var tempJson = {
+            name: "经纬网",
+            pid: 50,
+            type: "custom_graticule"
+        }
+        this.latlngGridLayer = mars3d.layer.createLayer(tempJson, this.viewer);
+    },
+
+    addIsoline: function () {
+        var that = this
+        Cesium.GeoJsonDataSource.load('../island/data/contour/contour200m.json', {
+            strokeWidth: 3
+        }).then(function (dataSource) {
+            var entities = dataSource.entities.values;
+            for (var i = 0; i < entities.length; i++) {
+                var iinthtml = '深度:' + entities[i]._properties._CONTOUR._value + "m";
+                entities[i].tooltip = {
+                    html: iinthtml,
+                    anchor: [0, -12],
+                },
+                    that.isolineLayer.entities.add(entities[i])
+            }
+        });
+    },
+
+    removeIsoline: function () {
+        this.isolineLayer.entities.removeAll()
+    },
+
+
+
+
+}));

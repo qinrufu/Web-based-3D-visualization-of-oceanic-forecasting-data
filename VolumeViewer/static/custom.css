@@ -1,0 +1,259 @@
+/* html, body, .row, .figure-card, .controls-card {
+    height: 100%;
+} */
+
+.figure-card, .controls-card {
+    height: 1045px;
+}
+
+body {
+    background: url("back.png");
+    background-repeat: no-repeat ;
+    background-attachment: fixed;
+    /* background-size: cover; */
+    background-size: 100% 100%;
+}
+
+.banner {
+    background: url("top.png");
+    background-repeat: no-repeat ;
+    background-size: 100% 100%;
+    height: 91px;
+    width: 100%;
+}
+
+.site-title {
+    line-height: 91px;
+    margin: 0;
+    padding: 0;
+    color: #fff;
+    padding-left: 25px;
+}
+
+.card-body {
+    position: relative;
+}
+
+#loading {
+    background: url(loading.svg) no-repeat;
+    background-size: cover;
+    position: absolute;
+    top: 25px;
+    left: 0;
+    height: 250px;
+    width: 250px;
+    line-height: 15px;
+    text-align: center;
+    padding-top: 100px;
+    display: none;
+}
+
+#draw-tools {
+    position: absolute;
+    top: 5px;
+    left: 15px;
+}
+
+.iconfont {
+    font-size: 32px;
+    cursor: pointer;
+}
+
+.figure-card, .controls-card {
+    background-color: rgba(16,44,102,0.3);
+    border-color: #048EE6;
+    /* background: url("box.png");
+    background-repeat: no-repeat ;
+    background-attachment: fixed;
+    background-size: cover;
+    background-size: 100% 100%; */
+}
+
+.figure-card {
+    border: none;
+}
+
+.draw-area {
+    padding-right: 0;
+}
+
+.form-group select, .form-group select:focus {
+    /* background-color: rgba(0,0,0,0.2); */
+    background: none;
+    border-color: #fff;
+}
+
+.start-pre-time option, .ts-select-options option, #sonar-selected-depth option, #sonar-selected-angle option, #sonar-selected-time option, #current-selected-time option, .date-select-options option {
+    color: #007bff;
+}
+
+.card, .form-control, .text-muted, .form-check-label{
+    color: #fff!important;
+}
+
+.nav-tabs .nav-link.active, .nav-tabs .nav-link:hover {
+    /* background-color: rgba(0,0,0,0.2); */
+    background: none;
+    color: #fff;
+    border-color: #048EE6;
+    border-bottom-color: #102C66;
+}
+
+.card-header {
+    /* background-color: rgba(0,0,0,.03); */
+    border-bottom: 1px solid #048EE6;
+}
+
+svg.main-svg {
+    background: none!important;
+}
+
+g.colorbar g text {
+    fill: #fff!important;
+}
+
+/*定义滚动条高宽及背景 高宽分别对应横竖滚动条的尺寸*/
+.form-group select::-webkit-scrollbar
+{
+    width: 4px;
+    height: 4px;
+}
+
+/*定义滚动条轨道 内阴影+圆角*/
+.form-group select::-webkit-scrollbar-track
+{
+    -webkit-box-shadow: inset 0 0 4px rgba(0,0,0,0.2);
+    border-radius: 5px;
+    background: none;
+}
+
+/*定义滑块 内阴影+圆角*/
+.form-group select::-webkit-scrollbar-thumb
+{
+    border-radius: 5px;
+    -webkit-box-shadow: inset 0 0 4px rgba(0,0,0,.2);
+    background-color: #fff;
+}
+
+.container {
+    height: 100%;
+    padding: 15px;
+}
+
+.left-col {
+    flex: 0 0 79.928%;
+    max-width: 79.928%;
+}
+
+.right-col {
+    flex: 0 0 20.072%;
+    max-width: 20.072%; /* 22.26% */
+}
+
+.nav-link {
+    padding: .5rem 0.8rem;
+}
+
+@media (min-width: 1200px) {
+    .container {
+        max-width: 100%;
+        /* max-width: 1860px; */
+    }
+}
+
+#drawBox {
+    height: 100%;
+}
+
+.check-label {
+    margin-bottom: 0.5rem;
+}
+
+.slider {
+    height: 141px;
+    position: absolute;
+    right: 54px;
+    background: none;
+    border: none;
+    box-shadow: none;
+    display: none;
+}
+
+#slider-temp {
+    top: 50px;
+}
+
+#slider-salinity {
+    top: 231px;
+}
+
+#slider-current {
+    top: 412px;
+}
+
+#slider-vcurrent {
+    top: 593px;
+}
+
+#slider-dem {
+    top: 78%;
+}
+
+.noUi-vertical .noUi-handle {
+    width: 29px;
+    height: 8px;
+    top: -4px;
+}
+
+.noUi-vertical .noUi-handle:after, .noUi-vertical .noUi-handle:before {
+    width: 0;
+}
+
+.noUi-vertical .noUi-tooltip {
+    border: none;
+    background: none;
+    color: #fff;
+    font-size: 10px;
+}
+
+#opacity-slider-tool {
+    position: absolute;
+    top: 25px;
+    left: 315px;
+    cursor: pointer;
+}
+
+#slider-opacity, #slider-vcurrent-size, #slider-resize-sonar {
+    display: inline-block;
+    width: 100px;
+    height: 10px;
+    cursor: pointer;
+}
+
+#slider-vcurrent-size, #slider-resize-sonar {
+    width: 120px;
+    margin-left: 8px;
+}
+
+.noUi-horizontal .noUi-handle {
+    width: 8px;
+    height: 16px;
+    top: -4px;
+    right: -5px!important;
+}
+
+.noUi-horizontal .noUi-handle:after, .noUi-horizontal .noUi-handle:before {
+    width: 0;
+}
+
+.noUi-horizontal .noUi-tooltip {
+    border: none;
+    background: none;
+    color: #fff;
+    font-size: 10px;
+    bottom: 100%;
+}
+
+.noUi-touch-area {
+    cursor: pointer;
+}

@@ -1,0 +1,381 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="./static/bootstrap.min.css">
+    <link rel="stylesheet" href="./static/iconfont.css">
+    <link rel="stylesheet" href="./static/nouislider.min.css">
+    <link rel="stylesheet" href="./static/custom.css">
+    <script src="./static/plotly-latest.min.js"></script>
+    <script src="./static/plotly-locale-zh-cn.js"></script>
+    <title>3D View</title>
+  </head>
+  <body>
+    <div class="banner">
+      <h2 class="site-title">Volume Rendering and Analysis of Ocean Forecasts</h2>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-9 left-col">
+          <div class="card figure-card">
+            <!-- <div class="card-header">
+              三维数据可视化
+            </div> -->
+            <div class="card-body draw-area">
+              <div id="drawBox"></div>
+              <div id="loading"><p>正在绘图</p><p>请稍候...</p></div>
+              <div id="draw-tools">
+                <span class="iconfont icon-jingdu" title="选择经度剖面（X）" onclick="cut_select('x')"></span>
+                <span class="iconfont icon-weidu" title="选择纬度剖面（Y）" onclick="cut_select('y')"></span>
+                <span class="iconfont icon-gaodu" title="选择深度剖面（Z）" onclick="cut_select('z')"></span>
+                <span class="iconfont icon-weibiaoti1-copy" title="选择方向角剖面（A）" onclick="cut_select('a')"></span>
+                <span class="iconfont icon-quxiao" title="取消选择工具状态" onclick="clc_select()"></span>
+                <span class="iconfont icon-qingkong" title="清空剖面选择" onclick="empty_select()"></span>
+
+                <span class="iconfont icon-jm" title="查看选中剖面" onclick="view_select()"></span>
+                <span class="iconfont icon-Dwuti" title="还原体可视化" onclick="reset_select()"></span>
+              </div>
+              <div id="opacity-slider-tool">
+                <div id="slider-opacity" title="调整透明度"></div>
+              </div>
+            </div>
+            <div id="slider-temp" class="slider"></div>
+            <div id="slider-salinity" class="slider"></div>
+            <div id="slider-current" class="slider"></div>
+            <div id="slider-vcurrent" class="slider"></div>
+            <!-- <div id="slider-sonar" class="slider"></div> -->
+            <!-- <div id="slider-dem" class="slider"></div> -->
+          </div>
+        </div>
+        <div class="col-md-3 right-col">
+          <div class="card controls-card">
+            <div class="card-header">
+              <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist">
+                <li class="nav-item">
+                  <a class="nav-link active" id="temp-tab" data-toggle="tab" href="#temp" role="tab" aria-controls="temp" aria-selected="true">Temperature</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" id="salinity-tab" data-toggle="tab" href="#salinity" role="tab" aria-controls="salinity" aria-selected="false">Salinity</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" id="current-tab" data-toggle="tab" href="#current" role="tab" aria-controls="current" aria-selected="false">Current</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" id="both-tab" data-toggle="tab" href="#both" role="tab" aria-controls="both" aria-selected="false">Overlie</a>
+                </li>
+              </ul>
+            </div>
+            <div class="tab-content" id="myTabContent">
+              <div class="card-body tab-pane fade show active" id="temp" role="tabpanel" aria-labelledby="temp-tab">
+                <div class="form-group">
+                  <label for="select-time">Date:</label>
+                  <select class="form-control date-select-options tsc-select-options" id="temp-selected-date">
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="temp-start-pre-time">Start Time:</label>
+                  <select class="form-control start-pre-time" id="temp-start-pre-time">
+                    <option value="0">00:00</option>
+                    <option value="6">06:00</option>
+                    <option value="12">12:00</option>
+                    <option value="18">18:00</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="select-time">Time Steps:</label>
+                  <select class="form-control ts-select-options" id="temp-selected-time">
+                  </select>
+                </div>
+                <div class="form-group">
+                  <button onclick="load_ts_model('temp')" class="btn btn-info w-100" id="temp-model-btn" data-toggle="popover" data-placement="top" data-content="请选择预报时间" data-trigger="manual">Loading Data</button>
+                </div>
+                <!-- <div class="form-group form-check check-label">
+                  <input type="checkbox" class="form-check-input" id="temp-checkboxX">
+                  <label class="form-check-label" for="temp-checkboxX">Longitudinal Sections</label>
+                </div> -->
+                <div class="form-group">
+                  <label for="temp-selectedX">Longitudinal Sections:</label>
+                  <select multiple class="form-control" id="temp-selectedX">
+                  </select>
+                </div>
+                <!-- <div class="form-group form-check check-label">
+                  <input type="checkbox" class="form-check-input" id="temp-checkboxY">
+                  <label class="form-check-label" for="temp-checkboxY">Longitudinal Sections:</label>
+                </div> -->
+                <div class="form-group">
+                  <label for="temp-selectedY">Latitudinal Sections:</label>
+                  <select multiple class="form-control" id="temp-selectedY">
+                  </select>
+                </div>
+                <!-- <div class="form-group form-check check-label">
+                  <input type="checkbox" class="form-check-input" id="temp-checkboxZ">
+                  <label class="form-check-label" for="temp-checkboxZ">Horizontal Sections:</label>
+                </div> -->
+                <div class="form-group">
+                  <label for="temp-selectedZ">Horizontal Sections:</label>
+                  <select multiple class="form-control" id="temp-selectedZ">
+                  </select>
+                </div>
+                <div class="form-group form-check">
+                  <input type="checkbox" class="form-check-input data-show-terrain" id="show-terrain-intemp" name="terrain">
+                  <label class="form-check-label" for="show-terrain-intemp">Show Seabed Topography</label>
+                </div>
+                <!-- <div class="form-group">
+                  <button onclick="draw_tsPM('temp')" class="btn btn-primary">查看温度剖面</button>
+                </div>
+                <div class="form-group">
+                  <button onclick="clear_selectedPM('temp')" class="btn btn-primary">清空剖面选择</button>
+                </div>
+                <div class="form-group">
+                  <button onclick="reset_ts('temp')" class="btn btn-primary">还原体可视化</button>
+                </div> -->
+              </div><!-- end of temp card -->
+              <div class="card-body tab-pane fade" id="salinity" role="tabpanel" aria-labelledby="salinity-tab">
+                <div class="form-group">
+                  <label for="select-time">Date:</label>
+                  <select class="form-control date-select-options tsc-select-options" id="salinity-selected-date">
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="salinity-start-pre-time">Start Time:</label>
+                  <select class="form-control start-pre-time" id="salinity-start-pre-time">
+                    <option value="0">00:00</option>
+                    <option value="6">06:00</option>
+                    <option value="12">12:00</option>
+                    <option value="18">18:00</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="select-time">Time Steps:</label>
+                  <select class="form-control ts-select-options" id="salinity-selected-time">
+                  </select>
+                </div>
+                <div class="form-group">
+                  <button onclick="load_ts_model('salinity')" class="btn btn-info w-100" id="salinity-model-btn" data-toggle="popover" data-placement="top" data-content="请选择预报时间" data-trigger="manual">Loading Data</button>
+                </div>
+                <!-- <div class="form-group form-check check-label">
+                  <input type="checkbox" class="form-check-input" id="salinity-checkboxX">
+                  <label class="form-check-label" for="salinity-checkboxX">Longitudinal Sections:</label>
+                </div> -->
+                <div class="form-group">
+                  <label for="salinity-selectedX">Longitudinal Sections:</label>
+                  <select multiple class="form-control" id="salinity-selectedX">
+                  </select>
+                </div>
+                <!-- <div class="form-group form-check check-label">
+                  <input type="checkbox" class="form-check-input" id="salinity-checkboxY">
+                  <label class="form-check-label" for="salinity-checkboxY">Latitudinal Sections:</label>
+                </div> -->
+                <div class="form-group">
+                  <label for="salinity-selectedY">Latitudinal Sections:</label>
+                  <select multiple class="form-control" id="salinity-selectedY">
+                  </select>
+                </div>
+                <!-- <div class="form-group form-check check-label">
+                  <input type="checkbox" class="form-check-input" id="salinity-checkboxZ">
+                  <label class="form-check-label" for="salinity-checkboxZ">Horizontal Sections</label>
+                </div> -->
+                <div class="form-group">
+                  <label for="salinity-selectedZ">Horizontal Sections:</label>
+                  <select multiple class="form-control" id="salinity-selectedZ">
+                  </select>
+
+                </div>
+                <div class="form-group form-check">
+                  <input type="checkbox" class="form-check-input data-show-terrain" id="show-terrain-insalinity" name="terrain">
+                  <label class="form-check-label" for="show-terrain-insalinity">Show Seabed Topography</label>
+                </div>
+                <!-- <div class="form-group">
+                  <button onclick="draw_tsPM('salinity')" class="btn btn-primary">查看盐度剖面</button>
+                </div>
+                <div class="form-group">
+                  <button onclick="clear_selectedPM('salinity')" class="btn btn-primary">清空剖面选择</button>
+                </div>
+                <div class="form-group">
+                  <button onclick="reset_ts('salinity')" class="btn btn-primary">还原体可视化</button>
+                </div> -->
+              </div><!-- end of salinity card -->
+              <div class="card-body tab-pane fade" id="current" role="tabpanel" aria-labelledby="current-tab">
+                <div class="form-group">
+                  <label for="select-time">Date:</label>
+                  <select class="form-control date-select-options tsc-select-options" id="current-selected-date">
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="current-start-pre-time">Start Time:</label>
+                  <select class="form-control start-pre-time" id="current-start-pre-time">
+                    <option value="0">00:00</option>
+                    <option value="6">06:00</option>
+                    <option value="12">12:00</option>
+                    <option value="18">18:00</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="select-time">Time Steps:</label>
+                  <select class="form-control" id="current-selected-time">
+                  </select>
+                </div>
+                <div class="form-group">
+                  <button onclick="load_current_model()" class="btn btn-info w-100" id="current-model-btn" data-toggle="popover" data-placement="top" data-content="请选择预报时间" data-trigger="manual">Loading Data</button>
+                </div>
+                <!-- <div class="form-group form-check check-label">
+                  <input type="checkbox" class="form-check-input" id="current-checkboxX">
+                  <label class="form-check-label" for="current-checkboxX">Longitudinal Sections:</label>
+                </div> -->
+                <div class="form-group">
+                  <label for="current-selectedX">Longitudinal Sections(V):</label>
+                  <select multiple class="form-control" id="current-selectedX">
+                  </select>
+                </div>
+                <!-- <div class="form-group form-check check-label">
+                  <input type="checkbox" class="form-check-input" id="current-checkboxY">
+                  <label class="form-check-label" for="current-checkboxY">Latitudinal Sections:</label>
+                </div> -->
+                <div class="form-group">
+                  <label for="current-selectedY">Latitudinal Sections(V):</label>
+                  <select multiple class="form-control" id="current-selectedY">
+                  </select>
+ 
+                </div>
+                <!-- <div class="form-group form-check check-label">
+                  <input type="checkbox" class="form-check-input" id="current-checkboxZ">
+                  <label class="form-check-label" for="current-checkboxZ">Horizontal Sections:</label>
+                </div> -->
+                <div class="form-group">
+                  <label for="current-selectedZ">Horizontal Sections(U+V):</label>
+                  <select multiple class="form-control" id="current-selectedZ">
+                  </select>
+                </div>
+                <div class="form-group form-check">
+                  <input type="checkbox" class="form-check-input data-show-current-zd" id="show-current-zd" name="current-zd">
+                  <label class="form-check-label" for="show-current-zd">Show Vectors</label>
+                  <span id="slider-vcurrent-size" title="调整流向箭头大小，默认 0.06"></span>
+                </div>
+                <div class="form-group form-check">
+                  <input type="checkbox" class="form-check-input data-show-terrain" id="show-terrain-incurrent" name="terrain">
+                  <label class="form-check-label" for="show-terrain-incurrent">Show Seabed Topography</label>
+                </div>
+                <!-- <div class="form-group">
+                  <button onclick="draw_tsPM('current')" class="btn btn-primary">查看盐度剖面</button>
+                </div>
+                <div class="form-group">
+                  <button onclick="clear_selectedPM('current')" class="btn btn-primary">清空剖面选择</button>
+                </div>
+                <div class="form-group">
+                  <button onclick="reset_ts('current')" class="btn btn-primary">还原体可视化</button>
+                </div> -->
+              </div><!-- end of current card -->
+              <div class="card-body tab-pane fade" id="sonar" role="tabpanel" aria-labelledby="sonar-tab">
+                <div class="form-group">
+                  <label for="select-time">Date:</label>
+                  <select class="form-control date-select-options sonar-select-options" id="sonar-selected-date">
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="sonar-start-pre-time">Start Time:</label>
+                  <select class="form-control start-pre-time" id="sonar-start-pre-time">
+                    <option value="0">00:00</option>
+                    <option value="6">06:00</option>
+                    <option value="12">12:00</option>
+                    <option value="18">18:00</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="select-time">数据选择</label>
+                  <select class="form-control" id="sonar-selected-time">
+                  </select>
+                </div>
+                <div class="form-group">
+                  <button onclick="load_sonar_model()" class="btn btn-info w-100" id="sonar-model-btn" data-toggle="popover" data-placement="top" data-content="请选择预报时间" data-trigger="manual">加载声场数据</button>
+                </div>
+                <!-- <div class="form-group form-check check-label">
+                  <input type="checkbox" class="form-check-input" id="sonar-angle">
+                  <label class="form-check-label" for="sonar-angle">方向角剖面</label>
+                </div>
+                <div class="form-group">
+                  <select class="form-control" id="sonar-selectedA">
+                  </select>
+                  <small class="form-text text-muted">选择需要显示的方向角剖面</small>
+                </div>
+                <div class="form-group form-check check-label">
+                  <input type="checkbox" class="form-check-input" id="sonar-depth">
+                  <label class="form-check-label" for="sonar-depth">深度剖面</label>
+                </div>
+                <div class="form-group">
+                  <select class="form-control" id="sonar-selectedZ">
+                  </select>
+                  <small class="form-text text-muted">选择需要显示的深度剖面</small>
+                </div> -->
+                <div class="form-group">
+                  <label for="sonar-selectedA">方向角剖面</label>
+                  <select multiple class="form-control" id="sonar-selectedA">
+                  </select>
+                  <small class="form-text text-muted">使用左上角剖面选择工具选择需要显示的方向角剖面</small>
+                </div>
+                <div class="form-group">
+                  <label for="sonar-selectedZ">深度剖面</label>
+                  <select multiple class="form-control" id="sonar-selectedZ">
+                  </select>
+                  <small class="form-text text-muted">使用左上角剖面选择工具选择需要显示的深度剖面</small>
+                </div>
+                <div class="form-group">
+                  <label for="slider-resize-sonar">调整粒子大小</label>
+                  <div id="slider-resize-sonar" title="粒子大小，默认 12.0"></div>
+                </div>
+                <div class="form-group form-check">
+                  <input type="checkbox" class="form-check-input data-show-terrain" id="show-terrain-insonar" name="terrain">
+                  <label class="form-check-label" for="show-terrain-insonar">显示地形数据</label>
+                </div>
+                <!-- <div class="form-group">
+                  <button onclick="draw_sonar_scatter_PM()" class="btn btn-primary">查看声场剖面</button>
+                  <div id="slider-resize-sonar" title="调整粒子大小，默认 4.0"></div>
+                </div> -->
+                <!-- <div class="form-group">
+                  <button onclick="clear_selected_sonarPM()" class="btn btn-primary">清空剖面选择</button>
+                </div> -->
+                <!-- <div class="form-group">
+                  <button onclick="reset_sonar()" class="btn btn-primary">还原体可视化</button>
+                </div> -->
+              </div><!-- end of sonar card -->
+              <div class="card-body tab-pane fade" id="both" role="tabpanel" aria-labelledby="both-tab">
+                <div class="form-group">
+                  <p>Options：</p>
+                </div>
+                <div class="form-group form-check">
+                  <input type="checkbox" class="form-check-input data-show-terrain" id="show-terrain" name="terrain">
+                  <label class="form-check-label" for="show-terrain">Show Seabed Topography</label>
+                </div>
+                <div class="form-group form-check">
+                  <input type="checkbox" class="form-check-input data-show-control" id="show-temp" name="temp">
+                  <label class="form-check-label" for="show-temp">Show Temperature</label>
+                </div>
+                <div class="form-group form-check">
+                  <input type="checkbox" class="form-check-input data-show-control" id="show-salinity" name="salinity">
+                  <label class="form-check-label" for="show-salinity">Show Salinity</label>
+                </div>
+                <div class="form-group form-check">
+                  <input type="checkbox" class="form-check-input data-show-control" id="show-current" name="current">
+                  <label class="form-check-label" for="show-current">Show Currents</label>
+                </div>
+                <div class="form-group">
+                  <br>
+                </div>
+              </div><!-- end of both card -->
+            </div><!-- end of tabcontent -->
+          </div><!-- end of controls card -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="./static/jquery-3.4.1.min.js"></script>
+    <script src="./static/popper.min.js"></script>
+    <script src="./static/bootstrap.min.js"></script>
+    <script src="./static/nouislider.min.js"></script>
+    <script src="./static/wNumb.js"></script>
+    <script src="./static/proj4.js"></script>
+    <script src="./static/control.js"></script>
+  </body>
+</html>

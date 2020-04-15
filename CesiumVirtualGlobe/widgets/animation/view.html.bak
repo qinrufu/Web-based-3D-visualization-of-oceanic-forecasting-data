@@ -1,0 +1,18 @@
+<!-- 2017-7-30 20:28:25 | 修改 木遥（QQ：516584683） -->
+<div class="btn-group animationView">
+    <div class="btn-group">
+        <button id="btn-animation-now" class="btn btn-default animationBtn" title="返回到当前时间">
+            <i class="fa fa-history"></i>
+        </button>
+        <button id="btn-animation-start" class="btn btn-default animationBtn" title="暂停">
+            <i class="fa fa-pause"></i>
+        </button>
+    </div>
+
+    <label style="margin:0 4px;">速度</label>
+    <input id="txt-animation-speed" type="number" class="form-control animationSpeed" value="1" title="速度（倍率）" />
+
+    <label id="btn-animation-time" style="margin:0 10px 0 4px; " title="当前时间">
+        2018-01-01 00:00:00
+    </label>
+</div>

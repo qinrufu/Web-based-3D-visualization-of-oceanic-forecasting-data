@@ -1,0 +1,26 @@
+.animationView {
+    position: absolute;
+    bottom: 0;
+    left: 1px;
+    height: 27px;
+    z-index: 999;
+    background: linear-gradient(to bottom, rgba(116,117,119,0.8) 0%,rgba(58,68,82,0.8) 11%,rgba(46,50,56,0.8) 46%,rgba(53,53,53,0.8) 81%,rgba(53,53,53,0.8) 100%);
+}
+
+.animationBtn {
+    padding: 1px 8px;
+    border: solid 1px #888;
+}
+
+
+
+.animationSpeed {
+    width: 45px;
+    height: 24px;
+    border: solid 1px #888;
+    padding: 2px 5px;
+}
+.animationSpeed ::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
+    -webkit-appearance: none !important;
+    margin: 0;
+}

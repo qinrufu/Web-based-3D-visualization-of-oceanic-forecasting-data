@@ -1,0 +1,110 @@
+{
+
+    "二维平面类": [
+        { "name": "线", "image": "$plot$/img/icon/polyline.jpg", "type": "polyline", "edittype": "polyline", "style": { "clampToGround": false } },
+        { "name": "贴地线", "image": "$plot$/img/icon/polyline_clampToGround.jpg", "type": "polyline", "edittype": "polyline", "style": { "clampToGround": true, "color": "#ffff00" } },
+
+        { "name": "曲线", "image": "$plot$/img/icon/curve.jpg", "type": "curve", "edittype": "polyline", "style": { "clampToGround": false } },
+        { "name": "贴地曲线", "image": "$plot$/img/icon/curve_clampToGround.jpg", "type": "curve", "edittype": "polyline", "style": { "clampToGround": true, "color": "#ffff00" } },
+        
+ 
+        
+
+        { "name": "面", "image": "$plot$/img/icon/polygon.jpg", "type": "polygon", "edittype": "polygon" },
+        { "name": "贴地面", "image": "$plot$/img/icon/polygon_clampToGround.jpg", "type": "polygon", "edittype": "polygon_clampToGround" },
+
+        { "name": "矩形", "image": "$plot$/img/icon/rectangle.jpg", "type": "rectangle", "edittype": "rectangle" },
+        { "name": "贴地矩形", "image": "$plot$/img/icon/rectangle_clampToGround.jpg", "type": "rectangle", "edittype": "rectangle_clampToGround" },
+
+        { "name": "圆", "image": "$plot$/img/icon/circle.jpg", "type": "circle", "edittype": "circle" },
+        { "name": "贴地圆", "image": "$plot$/img/icon/circle_clampToGround.jpg", "type": "circle", "edittype": "circle_clampToGround" },
+
+        { "name": "椭圆", "image": "$plot$/img/icon/ellipse.jpg", "type": "ellipse", "edittype": "ellipse" },
+        { "name": "贴地椭圆", "image": "$plot$/img/icon/ellipse_clampToGround.jpg", "type": "ellipse", "edittype": "ellipse_clampToGround" },
+
+        { "name": "贴地图片", "type": "rectangle", "edittype": "rectangleImg", "style": { "image": "img/world/gugong.jpg" } }
+
+    ],
+    "三维立体类": [
+        { "name": "墙体", "image": "$plot$/img/icon/wall.jpg", "type": "wall", "edittype": "wall" },
+         
+        { "name": "多边立体", "image": "$plot$/img/icon/extrudedPolygon.jpg", "type": "polygon", "edittype": "extrudedPolygon", "style": { "extrudedHeight": 100 } },
+
+        { "name": "立方体", "image": "$plot$/img/icon/extrudedRectangle.jpg", "type": "rectangle", "edittype": "extrudedRectangle" },
+        { "name": "圆柱体", "image": "$plot$/img/icon/extrudedCircle.jpg", "type": "circle", "edittype": "extrudedCircle" },
+        { "name": "椭圆柱体", "image": "$plot$/img/icon/extrudedEellipse.jpg", "type": "ellipse", "edittype": "extrudedEllipse" },
+
+             
+        { "name": "球体", "image": "$plot$/img/icon/ellipsoid.jpg", "type": "ellipsoid", "edittype": "ellipsoid" }
+    ],
+    "点及文字": [
+        { "name": "文字", "image": "$plot$/img/icon/label.jpg", "type": "label", "edittype": "label", "iconClass": "fa fa-text-width" },
+        { "name": "点", "image": "$plot$/img/icon/point.jpg", "type": "point", "edittype": "point" },
+
+        { "name": "图标点1", "type": "billboard", "edittype": "imagepoint", "style": { "image": "img/marker/mark1.png" } },
+        { "name": "图标点2", "type": "billboard", "edittype": "imagepoint", "style": { "image": "img/marker/mark2.png" } },
+        { "name": "图标点2", "type": "billboard", "edittype": "imagepoint", "style": { "image": "img/marker/mark3.png" } },
+        { "name": "图标点4", "type": "billboard", "edittype": "imagepoint", "style": { "image": "img/marker/mark4.png" } }
+    ],
+    "小模型": [ 
+     
+        {
+            "name": "小汽车",
+            "image": "$plot$/img/mx/qiche.jpg",
+            "type": "model",
+            "edittype": "model",
+            "style": { "scale": 0.5, "modelUrl": "data/gltf/qiche.gltf" }
+        },
+        {
+            "name": "飞机",
+            "image": "$plot$/img/mx/feiji.jpg",
+            "type": "model",
+            "edittype": "model",
+            "style": { "scale": 1, "modelUrl": "data/gltf/feiji.glb" }
+        },
+        {
+            "name": "雷达站",
+            "image": "$plot$/img/mx/leida.jpg",
+            "type": "model",
+            "edittype": "model",
+            "style": { "scale": 3, "modelUrl": "data/gltf/leida.glb" }
+        },       
+        {
+            "name": "风力发电机",
+            "image": "$plot$/img/mx/fengche.jpg",
+            "type": "model",
+            "edittype": "model",
+            "style": { "scale": 50, "modelUrl": "data/gltf/fengche.gltf" }
+        },
+        {
+            "name": "电线塔",
+            "image": "$plot$/img/mx/tower.jpg",
+            "type": "model",
+            "edittype": "model",
+            "style": { "scale": 3, "modelUrl": "data/gltf/tower/tower.glb" }
+        },
+        {
+            "name": "木楼",
+            "image": "$plot$/img/mx/mulou.jpg",
+            "type": "model",
+            "edittype": "model",
+            "style": { "scale": 1, "modelUrl": "data/gltf/mulou.gltf" }
+        },
+        {
+            "name": "消防员",
+            "image": "$plot$/img/mx/xiaofangyuan.jpg",
+            "type": "model",
+            "edittype": "model",
+            "style": { "scale": 1, "modelUrl": "data/gltf/firedrill/xiaofangyuan.glb" }
+        },
+       {
+            "name": "奔跑的消防员",
+            "image": "$plot$/img/mx/xiaofangyuan2.jpg",
+            "type": "model",
+            "edittype": "model",
+            "style": { "scale":3, "modelUrl": "data/gltf/firedrill/xiaofangyuan-run.gltf" },
+            "attr": {"name": "消防员1"}
+        }
+ 
+    ]
+}
