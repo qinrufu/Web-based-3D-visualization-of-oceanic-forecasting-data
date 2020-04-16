@@ -8,7 +8,7 @@
     <!-- 移动设备 viewport -->
     <meta name="viewport"
         content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,minimal-ui">
-    <meta name="author" content="VirtualGlobeGIS ">
+    <meta name="author" content="火星科技 http://cesium.marsgis.cn ">
     <!-- 360浏览器默认使用Webkit内核 -->
     <meta name="renderer" content="webkit">
     <!-- Chrome浏览器添加桌面快捷方式（安卓） -->
@@ -18,7 +18,7 @@
     <link rel="icon" sizes="192x192" href="img/favicon/apple-touch-icon.png">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="apple-mobile-web-app-title" content="VirtualGlobeGIS">
+    <meta name="apple-mobile-web-app-title" content="火星科技MarsGIS">
     <!-- Win8标题栏及ICON图标 -->
     <link rel="apple-touch-icon-precomposed" href="../../img/favicon/apple-touch-icon.png">
     <meta name="msapplication-TileImage" content="../../img/favicon/app-icon72x72@2x.png">
@@ -32,7 +32,7 @@
 </head>
 
 <body>
-    <div id="echartsViewNumerical" style="width:100%;height:100%;"></div>
+    <div id="echartsViewNumericalCheck" style="width:100%;height:100%;"></div>
 
     <!--页面js-->
     <script src="view.js?time=20190418"></script>
